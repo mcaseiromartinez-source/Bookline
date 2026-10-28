@@ -4,3 +4,6 @@ out
 next-env.d.ts
 *.tsbuildinfo
 .env*.local
+
+# Listas del agente de ventas (datos de contacto de empresas)
+ventas/

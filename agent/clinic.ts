@@ -10,8 +10,16 @@ export interface Treatment {
   durationMin: number;
 }
 
+/** Tramos de apertura por día de la semana (0 = domingo … 6 = sábado). */
+export type WeeklySchedule = Record<number, [string, string][]>;
+
 export interface Clinic {
   name: string;
+  timezone: string;
+  /** Horario que usa la agenda para ofrecer huecos. */
+  schedule: WeeklySchedule;
+  /** Duración por defecto de una cita, en minutos. */
+  slotMinutes: number;
   assistantName: string;
   address: string;
   hours: string;
@@ -25,6 +33,15 @@ export interface Clinic {
 
 export const CLINIC: Clinic = {
   name: "Clínica Dental Sonríe",
+  timezone: "Europe/Madrid",
+  schedule: {
+    1: [["09:00", "14:00"], ["16:00", "20:00"]],
+    2: [["09:00", "14:00"], ["16:00", "20:00"]],
+    3: [["09:00", "14:00"], ["16:00", "20:00"]],
+    4: [["09:00", "14:00"], ["16:00", "20:00"]],
+    5: [["09:00", "14:00"], ["16:00", "20:00"]],
+  },
+  slotMinutes: 30,
   assistantName: "Lucía",
   address: "Calle Mayor 24, primera planta, Madrid. A dos minutos del metro Sol.",
   hours: "Lunes a viernes de 9:00 a 14:00 y de 16:00 a 20:00. Sábados, domingos y festivos, cerrado.",

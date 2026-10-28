@@ -7,14 +7,26 @@
     "build": "next build",
     "start": "next start",
     "lint": "tsc --noEmit",
-    "agent:sync": "tsx agent/sync.ts"
+    "agent:sync": "tsx agent/sync.ts",
+    "agent:test-call": "tsx agent/test-call.ts",
+    "telegram:setup": "tsx agent/telegram-setup.ts",
+    "status": "tsx agent/status.ts",
+    "ventas": "tsx agent/ventas.ts",
+    "sheets:setup": "tsx agent/sheets-setup.ts",
+    "panel:usuario": "tsx agent/panel-user.ts"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^1.3.0",
+    "@supabase/ssr": "^0.12.7",
+    "@supabase/supabase-js": "^2.118.0",
     "framer-motion": "^14.0.0",
+    "google-auth-library": "^11.3.1",
     "lucide-react": "^1.54.0",
     "next": "^15.5.27",
     "react": "^19.3.0",
-    "react-dom": "^19.3.0"
+    "react-dom": "^19.3.0",
+    "resend": "^6.35.0",
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.3",
