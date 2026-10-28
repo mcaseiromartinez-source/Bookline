@@ -42,6 +42,25 @@ lib/
   content.ts        Todos los textos, cifras y datos de la landing
 ```
 
+## Agente de voz (Vapi)
+
+El agente telefónico está en `agent/`:
+
+```
+agent/
+  clinic.ts     Datos de la clínica (horario, tratamientos, precios…)
+  prompt.ts     Guion del agente (cómo habla, urgencias, límites)
+  assistant.ts  Configuración de Vapi (modelo, voz, transcripción)
+  sync.ts       Crea o actualiza el asistente en Vapi
+```
+
+1. Crea una cuenta en https://dashboard.vapi.ai y copia tu **clave privada** (API Keys).
+2. Copia `.env.example` como `.env.local` y pega la clave en `VAPI_API_KEY=`.
+3. Ejecuta `npm run agent:sync`. La primera vez crea el asistente; después lo actualiza.
+4. Pruébalo en el dashboard de Vapi con **Talk to Assistant**, desde el navegador y sin necesidad de un número de teléfono.
+
+Cada vez que cambies `clinic.ts` o `prompt.ts`, vuelve a ejecutar `npm run agent:sync`.
+
 ## Notas
 
 - **Textos y cifras** están en `lib/content.ts`. Las estadísticas, los precios (149 €/mes) y las métricas por sector son **orientativos**: hay que validarlos o citar fuentes antes de publicar.
